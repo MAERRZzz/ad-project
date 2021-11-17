@@ -31,6 +31,14 @@
   </v-navigation-drawer> 
   <v-app-bar app dark color="primary">
     <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
+    <v-toolbar-title>
+      <router-link 
+      to="/" 
+      tag="span" 
+      class="pointer">
+      Home
+    </router-link>
+    </v-toolbar-title>
     <v-spacer></v-spacer>
     <v-toolbar-items class="hidden-sm-and-down">
        <v-btn 
@@ -63,3 +71,9 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+  .pointer {
+    cursor: pointer;
+  }
+</style>
