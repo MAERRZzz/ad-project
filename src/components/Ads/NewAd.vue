@@ -21,7 +21,7 @@
 					class="mb-3" 
 					></v-textarea>
 					</v-form>
-					<v-layout  row> 
+					<v-layout  row>
 						<v-flex xs12>
 						<v-btn 
 						class="mt-3"
@@ -35,8 +35,8 @@
 						<v-flex xs12>
 						<img 	src="https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg" height="150" class="mt-3">
 						</v-flex>
-					</v-layout> 
-					<v-layout row> 
+					</v-layout>
+					<v-layout row>
 						<v-flex xs12>
 						<v-switch
 						v-model="promo"
@@ -44,7 +44,7 @@
 						></v-switch>
 						</v-flex>
 					</v-layout>
-					<v-layout row> 
+					<v-layout row>
 						<v-flex xs12>
 						<v-spacer></v-spacer>
 						<v-btn 
@@ -52,7 +52,7 @@
 						@click="createAd" 
 						>Create Ad</v-btn>
 						</v-flex>
-					</v-layout>   
+					</v-layout>
 			</v-flex>
 		</v-layout>
 	</v-container>
@@ -74,9 +74,9 @@ export default {
 				title: this.title,
 				desc: this.description,
 				promo: this.promo,
-                                src: "https://cdn.vuetifyjs.com/images/cards/cooking.png"
+				src: "https://cdn.vuetifyjs.com/images/cards/cooking.png"
 			}
-			console.log(ad)
+			this.$store.dispatch("createAd", ad)
 			}
 		}
 	}
