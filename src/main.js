@@ -29,11 +29,20 @@ new Vue({
   // Initialize Firebase
   fb.initializeApp(firebaseConfig);
   fb.analytics();
+  //fb.auth().onAuthStateChanged(user => {
+    //здесь можно обновить пользователя в store
+    //console.log(user)
+  //});
   fb.auth().onAuthStateChanged(user => {
-   if (user) {
-     console.log(`Смотрим что мы получили: ${user.uid}`)
-     this.$store.dispatch('autoLoginUser', user.uid)
+    if (user) {
+      console.log(`Смотрим что мы получили: ${user.uid}`)
+      this.$store.dispatch('autoLoginUser', user.uid)
     }
  })
+
+  //const app = initializeApp(firebaseConfig);
+  //getAnalytics(app);
+
+  this.$store.dispatch('fetchAds')
 }
 }).$mount('#app')

@@ -39,7 +39,7 @@
 
 				</v-card-actions>
 			</v-card>
-			<template v-if="error">
+<!--			<template v-if="error">
 			<v-snackbar
 				:timeout="5000"
 				:multi-line="true"
@@ -49,7 +49,7 @@
 				{{ error }}
 				<v-btn text dark @click.native="closeError">Close</v-btn>
 			</v-snackbar>
-			</template>
+			</template>-->
 
 
 		</v-flex>
@@ -77,10 +77,10 @@ export default {
 	computed: {
 		loading() {
 			return this.$store.getters.loading
-		},
-		error () {
-			return this.$store.getters.error
-		}
+		}//,
+		//error () {
+		//	return this.$store.getters.error
+		//}
 	},
 	methods: {
 		onSubmit(){
@@ -98,9 +98,19 @@ export default {
 				})
 			}
 		},
-		closeError () {
-			this.$store.dispatch('clearError')
-		}
+		//closeError () {
+		//	this.$store.dispatch('clearError')
+		//}//,
+		//onLogout () {
+		//	this.$store.dispatch('logoutUser')
+		//	this.$router.push("/")
+		//}
+	},
+	created () {
+		if (this.$route.query['loginError']) {
+		this.$store.dispatch('setError','Please login to access this page')
 	}
+	
+}
 } 
 </script>
