@@ -29,7 +29,11 @@ export default {
                 commit('setError', error.message)
         throw error
             }
-        }        
+        },
+        logoutUser ({commit}) {
+            fb.auth().signOut()
+                commit('setUser', null)
+        }          
     },
 	getters: {
         isUserLoggedIn (state) {
