@@ -159,15 +159,15 @@ export default {
 				return ad.promo
 			})
 		},
-		myAds(state) {
-			return state.ads
-        },
+    myAds(state, getters) {
+      return state.ads.filter(ad => {
+          return ad.ownerId == getters.user.id
+      })
+    },
     adById(state) {
        return id => {
        return state.ads.find(ad => ad.id == id)
        }
-    },
-
-            
+    },           
   }
 }
